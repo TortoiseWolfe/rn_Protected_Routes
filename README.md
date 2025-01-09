@@ -39,6 +39,9 @@ touch babel.config.js
 npx expo customize metro.config.js
 touch nativewind-env.d.ts
 touch .env .env.example
+npm install @supabase/supabase-js
+npm install react-native-dotenv
+
 ```
 
 ## tailwind.config.js ##
@@ -68,14 +71,18 @@ module.exports = {
 
 ```javascript
 module.exports = function (api) {
-    api.cache(true);
-    return {
-      presets: [
-        ["babel-preset-expo", { jsxImportSource: "nativewind" }],
-        "nativewind/babel",
-      ],
-    };
+  api.cache(true);
+  return {
+    presets: [
+      ["babel-preset-expo", { jsxImportSource: "nativewind" }],
+      "nativewind/babel",
+     ]
+    // plugins: [
+    //   ["module:react-native-dotenv"], // Plugin for accessing .env variables
+    // ],
   };
+};
+
 ```
 
 ## metro.config.js ##
