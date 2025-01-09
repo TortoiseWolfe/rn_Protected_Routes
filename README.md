@@ -38,6 +38,7 @@ touch global.css
 touch babel.config.js
 npx expo customize metro.config.js
 touch nativewind-env.d.ts
+touch .env .env.example
 ```
 
 ## tailwind.config.js ##
@@ -112,4 +113,9 @@ export default function RootLayout() {
 
 ```tyypscript
 /// <reference types="nativewind/types" />
+```
+
+## .env  & .env.example ##
+
+```env
 ```
