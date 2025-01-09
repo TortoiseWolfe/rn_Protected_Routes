@@ -32,7 +32,7 @@ npm run reset-project
 ```
 
 ```bash
-npx expo install nativewind tailwindcss react-native-reanimated react-native-safe-area-context
+npx expo install nativewind tailwindcss
 npx tailwindcss init
 touch global.css
 touch babel.config.js
@@ -42,32 +42,64 @@ touch nativewind-env.d.ts
 
 ## tailwind.config.js ##
 
-```tyypscript
-
+```javascript
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  // NOTE: Update this to include the paths to all of your component files.
+  content: ["./app/**/*.{js,jsx,ts,tsx}"],
+  presets: [require("nativewind/preset")],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
 ```
 
 ## global.css ##
 
-```tyypscript
-
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 ```
 
 ## babel.config.js ##
 
-```tyypscript
-
+```javascript
+module.exports = function (api) {
+    api.cache(true);
+    return {
+      presets: [
+        ["babel-preset-expo", { jsxImportSource: "nativewind" }],
+        "nativewind/babel",
+      ],
+    };
+  };
 ```
 
 ## metro.config.js ##
 
-```tyypscript
+```javascript
+// Learn more https://docs.expo.io/guides/customizing-metro
+const { getDefaultConfig } = require('expo/metro-config');
+const { withNativeWind } = require("nativewind/metro");
 
+/** @type {import('expo/metro-config').MetroConfig} */
+const config = getDefaultConfig(__dirname);
+
+module.exports = withNativeWind(config, { input: "./global.css" });
 ```
 
 ## app/_layout.js ##
 
-```tyypscript
+```javascript
+import { Stack } from "expo-router";
+// Import your global CSS file
+import "../global.css";
 
+export default function RootLayout() {
+  return <Stack />;
+}
 ```
 
 ## app/index.tsx ##
@@ -79,5 +111,5 @@ touch nativewind-env.d.ts
 ## nativewind-env.d.ts ##
 
 ```tyypscript
-
+/// <reference types="nativewind/types" />
 ```
