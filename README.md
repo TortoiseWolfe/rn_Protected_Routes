@@ -27,7 +27,7 @@ tsconfig.json
 
 ```bash
 npx create-expo-app rn_Protected_Routez
-cd rn_Protecte_Routez
+cd rn_Protected_Routez
 npm run reset-project
 ```
 
