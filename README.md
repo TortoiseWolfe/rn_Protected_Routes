@@ -22,6 +22,7 @@ touch babel.config.js
 npx expo customize metro.config.js
 touch nativewind-env.d.ts
 npm install dotenv
+touch app.config.ts
 ```
 
 > - **`nativewind` + `tailwindcss`**: styling.  
@@ -31,15 +32,7 @@ npm install dotenv
 > - **`nativewind-env.d.ts`**: type definitions.  
 > - **`dotenv`**: load `.env` in a config file.
 
-*(No test yet—Babel, Metro not wired.)*
-
 ---
-
-## **3. Create `app.config.ts` (No Duplication of name/slug)**
-
-```bash
-touch app.config.ts
-```
 
 **`app.config.ts`** (paste this content):
 ```ts
@@ -115,9 +108,6 @@ module.exports = withNativeWind(config, {
 ## **5. Set Up Basic App**
 
 ```bash
-mkdir -p app
-touch app/_layout.tsx
-touch app/index.tsx
 touch nativewind-env.d.ts
 ```
 
