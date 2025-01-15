@@ -150,7 +150,6 @@ module.exports = withNativeWind(config, {
 ## **6) Base App + Supabase Client**
 
 ```bash
-mkdir -p app
 touch nativewind-env.d.ts
 mkdir -p lib
 touch lib/supabaseClient.ts
