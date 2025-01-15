@@ -1,3 +1,5 @@
+# **Expo Router + Supabase Auth + NativeWind Tutorial**
+
 ## **1) Create & Reset the Expo Project**
 
 ```bash
@@ -81,9 +83,9 @@ export default () => ({
     },
     plugins: [
       "expo-font" // Tells Expo to configure the expo-font plugin
-    ]
+    ],
     // (Optional) userInterfaceStyle to remove the color scheme warning:
-    // userInterfaceStyle: "automatic",
+    userInterfaceStyle: "automatic",
   },
 });
 ```
