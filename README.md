@@ -155,10 +155,7 @@ No test yet—we need screens.
 ## **6) Base App + Supabase Client**
 
 ```bash
-mkdir -p app
 touch nativewind-env.d.ts
-touch app/_layout.tsx
-touch app/index.tsx
 mkdir -p lib
 touch lib/supabaseClient.ts
 ```
