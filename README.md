@@ -86,13 +86,18 @@ import 'dotenv/config';
 
 export default () => ({
   expo: {
-    // name & slug remain in app.json
+    // your name/slug/extra stuff
+    // name: "rn_Protected_Routez",
+    // slug: "rn_Protected_Routez",
     extra: {
       ENV_PUBLIC_GREETING: process.env.ENV_PUBLIC_GREETING,
       ENV_PUBLIC_VERSION: process.env.ENV_PUBLIC_VERSION,
       SUPABASE_URL: process.env.SUPABASE_URL,
       SUPABASE_ANON_KEY: process.env.SUPABASE_ANON_KEY,
     },
+    plugins: [
+      "expo-font"
+    ]
   },
 });
 ```
