@@ -1,7 +1,3 @@
-Below is the **same** tutorial, **without using `echo`** for `.env`—we’ll just **create** the file with `touch` and **paste** its contents directly (the same pattern as other files). Everything else remains **unchanged** to ensure a **clean**, **working** project that **guards from a higher layout**, with **no** “navigate before mounting” issue.
-
----
-
 # **Guarding Protected Routes from a Higher-Level Layout**  
 *(Expo Router + NativeWind + Tailwind + TypeScript + Env Vars + Dark Theme + Fonts)*
 
@@ -11,15 +7,8 @@ Below is the **same** tutorial, **without using `echo`** for `.env`—we’ll ju
 npx create-expo-app rn_Protected_Routez
 cd rn_Protected_Routez
 npm run reset-project
+rm -rf app-example
 ```
-
-- If it creates `app-example`, remove it:
-  ```bash
-  rm -rf app-example
-  ```
-- Keep **`app.json`** for `name` and `slug`. We won’t duplicate them.
-
-*(No test yet.)*
 
 ---
 
