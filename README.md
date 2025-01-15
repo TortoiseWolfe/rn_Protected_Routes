@@ -231,9 +231,9 @@ npx expo start --clear
 We’ll add `(auth)/signUp.tsx` and `(auth)/signIn.tsx`. If the user tries to access a protected route without logging in, we’ll direct them here.
 
 ```bash
-mkdir -p app/\(auth\)
-touch app/\(auth\)/signUp.tsx
-touch app/\(auth\)/signIn.tsx
+mkdir -p 'app/\(auth\)'
+touch 'app/\(auth\)/signUp.tsx'
+touch 'app/\(auth\)/signIn.tsx'
 ```
 
 ### 7.1. **`app/(auth)/signUp.tsx`**
@@ -339,9 +339,9 @@ export default function SignInScreen() {
 We’ll create `(protected)/_layout.tsx` that checks **Supabase** for a logged-in session before rendering child screens.
 
 ```bash
-mkdir -p app/\(protected\)
-touch app/\(protected\)/_layout.tsx
-touch app/\(protected\)/profile.tsx
+mkdir -p 'app/\(protected\)'
+touch 'app/\(protected\)/_layout.tsx'
+touch 'app/\(protected\)/profile.tsx'
 ```
 
 ### 8.1. **`app/(protected)/_layout.tsx`**  
