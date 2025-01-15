@@ -333,48 +333,38 @@ touch "app/(protected)/profile.tsx"
 
 ### 8.1. **`app/(protected)/_layout.tsx`**
 ```tsx
-import React, { useEffect, useState } from 'react';
-import { Stack, useRouter } from 'expo-router';
-import { supabase } from '../../lib/supabaseClient';
+import React from 'react';
+import { View, Text, Button } from 'react-native';
+import { Link } from "expo-router";
+import Constants from "expo-constants";
 
-export default function ProtectedLayout() {
-  const router = useRouter();
-  const [checked, setChecked] = useState(false);
-  const [session, setSession] = useState<any>(null);
+export default function HomeScreen() {
+  const greeting = Constants.expoConfig?.extra?.ENV_PUBLIC_GREETING || "No greeting";
+  const version = Constants.expoConfig?.extra?.ENV_PUBLIC_VERSION || "0.0.0";
 
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => {
-      setSession(data.session);
-      setChecked(true);
-      if (!data.session) {
-        router.replace("/(auth)/signIn");
-      }
-    });
+  return (
+    <View className="flex-1 items-center justify-center bg-white p-4">
+      <Text className="text-xl font-bold text-blue-500 mb-2">
+        Hello from NativeWind + Expo Router!
+      </Text>
+      <Text className="text-base text-gray-700 mb-4">
+        {greeting} (v{version})
+      </Text>
 
-    const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
-      if (!session) {
-        router.replace("/(auth)/signIn");
-      } else {
-        setSession(session);
-      }
-    });
+      {/* Protected route */}
+      <Link href="/(protected)/profile" asChild>
+        <Button title="Go to Profile" onPress={() => {}} />
+      </Link>
 
-    return () => {
-      sub?.subscription.unsubscribe();
-    };
-  }, [router]);
-
-  if (!checked) {
-    // Checking session => show nothing
-    return null;
-  }
-
-  if (!session) {
-    // Already redirecting => show nothing
-    return null;
-  }
-
-  return <Stack />;
+      {/* Auth routes */}
+      <Link href="/(auth)/signUp" asChild>
+        <Button title="Sign Up" onPress={() => {}} />
+      </Link>
+      <Link href="/(auth)/signIn" asChild>
+        <Button title="Sign In" onPress={() => {}} />
+      </Link>
+    </View>
+  );
 }
 ```
 
