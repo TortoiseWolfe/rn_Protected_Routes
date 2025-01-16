@@ -31,6 +31,7 @@ touch nativewind-env.d.ts
 npm install dotenv
 npm install @supabase/supabase-js
 touch app.config.ts
+touch .env
 ```
 
 ### **Explanation**
@@ -47,11 +48,7 @@ touch app.config.ts
 
 ---
 
-## 3) **Create `.env` with 4 Variables**
-
-```bash
-touch .env
-```
+## 3) **`.env` Variables**
 
 Open **`.env`** in your editor and paste your four variables:
 ```env
